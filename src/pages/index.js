@@ -10,12 +10,32 @@ import styles from '@styles/Home.module.scss';
 
 const DEFAULT_CENTER = [38.907132, -77.036546]
 const fetcher = (url) => fetch(url).then((res) => res.json());//defining fetch function/how to fetch data
+
 export default function Home() {
   const { data } = useSWR(
     'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media&2018b',
     fetcher
   );//setting up request for fetching using api endpoint
   console.log(data);
+// update for current date/time with updated dates for destination popup
+const currentDate = new Date(Date.now());
+const currentYear = currentDate.getFullYear();
+const destinations = data?.destinations.map((destination) => {
+  const { arrival, departure } = destination;
+
+  const arrivalDate = new Date(arrival);
+  const departureDate = new Date(departure);
+
+  arrivalDate.setFullYear(currentYear);
+  departureDate.setFullYear(currentYear);
+
+  return {
+    ...destination,
+    arrival: arrivalDate.getTime(),
+    departure:  departureDate.getTime(),
+  }
+});
+
   return (
     <Layout>
       <Head>
@@ -39,7 +59,9 @@ export default function Home() {
                   attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                 /> 
                 {/* TileLayer: //map imagery/background of map */}
-                {data?.destinations?.map(({ id, arrival, departure, location, city, region }) => {
+                {/* Updated map markers with arrival and departure times & values, formatted time, and added
+                arrival and departure datetimes to Popup */}
+                {destinations?.map(({ id, arrival, departure, location, city, region }) => {
                   const arrivalDate = new Date(arrival);
                   const arrivalHours = arrivalDate.getHours()
                   const arrivalMinutes = arrivalDate.getMinutes()
