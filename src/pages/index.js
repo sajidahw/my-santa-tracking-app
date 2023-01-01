@@ -1,5 +1,5 @@
 import Head from 'next/head';
-
+import useSWR from 'swr';// hook install; to fetch data using SWR
 import Layout from '@components/Layout';
 import Section from '@components/Section';
 import Container from '@components/Container';
@@ -9,8 +9,13 @@ import Button from '@components/Button';
 import styles from '@styles/Home.module.scss';
 
 const DEFAULT_CENTER = [38.907132, -77.036546]
-
+const fetcher = (url) => fetch(url).then((res) => res.json());//defining fetch function/how to fetch data
 export default function Home() {
+  const { data } = useSWR(
+    'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media&2018b',
+    fetcher
+  );//setting up request for fetching using api endpoint
+  console.log(data);
   return (
     <Layout>
       <Head>
@@ -31,7 +36,7 @@ export default function Home() {
                 <TileLayer
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                />
+                /> //background of map
                 <Marker position={DEFAULT_CENTER}>
                   <Popup>
                     A pretty CSS3 popup. <br /> Easily customizable.
