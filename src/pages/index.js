@@ -76,6 +76,8 @@ const destinations = data?.destinations.map((destination) => {
                   const departureMinutes = departureDate.getMinutes()
                   const departureTime = `${departureHours}:${departureMinutes}`;
                   
+                  //santaWasHere: current time is later than the departure time
+                  // santaIsHere: current time is later than the arrival time AND Santa hasn't left
                   const santaWasHere = currentDate.getTime() - departureDate.getTime() > 0;
                   const santaIsHere = currentDate.getTime() - arrivalDate.getTime() > 0 && !santaWasHere;
 
@@ -92,7 +94,7 @@ const destinations = data?.destinations.map((destination) => {
                     iconRetinaUrl = '/leaflet/images/gift-marker-icon-2x.png';
                   }
 
-                  // fix so that Santa icon appears in front of other icons
+                  // fix so that Santa icon appears in front of other icons; CSS also updated to reflect this
                   let className = '';
                   if ( santaIsHere ) {
                     className = `${className} ${styles.iconSantaIsHere}`;
