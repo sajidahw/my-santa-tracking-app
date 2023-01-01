@@ -7,6 +7,7 @@ A Santa Tracker app which displays a map of destinations to see if he's stopped 
 <!-- ![sf_on_map](https://user-images.githubusercontent.com/88634981/210160619-4a8ddfd0-81e1-446d-8a30-833af37e9c1f.jpg) -->
 <img src="https://user-images.githubusercontent.com/88634981/210160619-4a8ddfd0-81e1-446d-8a30-833af37e9c1f.jpg" width=85% height=85%>
 
+I enjoyed learning about the React Leaflet to map out destinations by using a locations API streamed by SWR.
 
 # 🍃 Next.js Leaflet Starter
 
@@ -44,3 +45,8 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+### Issues Encountered during Build
+-Uninstall/disable Vim from VS Code
+-Installing SWR in the same project folder
+-Disableing Chrome settings for JavaScript source map and CSS source map
