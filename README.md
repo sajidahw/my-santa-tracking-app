@@ -1,3 +1,6 @@
+# Summary
+A Santa Tracker app which displays a map of destinations to see if he's stopped yet, if he's currently at that location or if he's already left.
+
 # 🍃 Next.js Leaflet Starter
 
 Jumpstart your new Next.js mapping project with Leaflet!
