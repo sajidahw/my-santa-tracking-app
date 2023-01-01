@@ -1,5 +1,5 @@
 # Summary
-A Santa Tracker app which displays a map of destinations to see if he's stopped yet, if he's currently at that location or if he's already left.
+A Santa Tracker app which displays a map of destinations to see if he's stopped by yet, if he's currently at that location or if he's already left.
 
 <!-- ![santa_on_map](https://user-images.githubusercontent.com/88634981/210160617-4b1afe62-d05f-4e07-aa8d-1bc0efd33dba.jpg) -->
 <img src="https://user-images.githubusercontent.com/88634981/210160617-4b1afe62-d05f-4e07-aa8d-1bc0efd33dba.jpg" width=85% height=85%>
