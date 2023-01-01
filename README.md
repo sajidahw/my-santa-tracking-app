@@ -1,13 +1,16 @@
 # Summary
 A Santa Tracker app which displays a map of destinations to see if he's stopped by yet, if he's currently at that location or if he's already left.
 
+Timeframe snapshot of Santa's location in Argentina:
 <!-- ![santa_on_map](https://user-images.githubusercontent.com/88634981/210160617-4b1afe62-d05f-4e07-aa8d-1bc0efd33dba.jpg) -->
 <img src="https://user-images.githubusercontent.com/88634981/210160617-4b1afe62-d05f-4e07-aa8d-1bc0efd33dba.jpg" width=85% height=85%>
 
+Timeframe snapshot depicting that Santa hasn't been to San Francisco yet:
 <!-- ![sf_on_map](https://user-images.githubusercontent.com/88634981/210160619-4a8ddfd0-81e1-446d-8a30-833af37e9c1f.jpg) -->
 <img src="https://user-images.githubusercontent.com/88634981/210160619-4a8ddfd0-81e1-446d-8a30-833af37e9c1f.jpg" width=85% height=85%>
 
-I enjoyed learning about the React Leaflet to map out destinations by using a locations API streamed by SWR.
+I enjoyed learning and using React Leaflet to map out destinations fed by an API providing locations streamed by SWR.
+
 
 # 🍃 Next.js Leaflet Starter
 
