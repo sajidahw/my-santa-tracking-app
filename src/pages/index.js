@@ -49,10 +49,9 @@ const destinations = data?.destinations.map((destination) => {
           <h1 className={styles.title}>
             Next.js Leaflet Starter
           </h1>
-
+          {/* Center and Zoom updated so map is levelled and centered. Pop ups added to include city, region */}
           <Map className={styles.homeMap} width="800" height="400" center={[0, 0]} zoom={1}>
-            {/* Center and Zoom updated so map is levelled and centered. Pop ups added to include city, region */}
-            {({ TileLayer, Marker, Popup }) => (
+            {({ TileLayer, Marker, Popup }, Leaflet) => (
               <>
                 <TileLayer
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -73,7 +72,16 @@ const destinations = data?.destinations.map((destination) => {
                   const departureTime = `${departureHours}:${departureMinutes}`;
                   
                   return (
-                    <Marker key={id} position={[location.lat, location.lng]}>
+                    // Updated Marker to also use customized icons
+                    <Marker 
+                      key={id} 
+                      position={[location.lat, location.lng]}
+                      icon={Leaflet.icon({
+                        iconUrl: '/leaflet/images/tree-marker-icon.png',
+                        iconRetinaUrl: '/leaflet/images/tree-marker-icon-2x.png',
+                        iconSize: [41, 41]
+                      })}
+                    >
                       <Popup>
                         <strong>Location:</strong> { city }, { region }
                         <br />
