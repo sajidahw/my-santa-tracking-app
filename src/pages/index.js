@@ -18,7 +18,12 @@ export default function Home() {
   );//setting up request for fetching using api endpoint
   console.log(data);
 // update for current date/time with updated dates for destination popup
-const currentDate = new Date(Date.now());
+
+// const currentDate = new Date(Date.now());//for real time, will show all delivered
+
+//faked time below to show not Xmas time yet completely
+const currentDate = new Date('2022-12-25T02:34:30.115Z');//9:34 pm EST setting
+
 const currentYear = currentDate.getFullYear();
 const destinations = data?.destinations.map((destination) => {
   const { arrival, departure } = destination;
@@ -71,15 +76,38 @@ const destinations = data?.destinations.map((destination) => {
                   const departureMinutes = departureDate.getMinutes()
                   const departureTime = `${departureHours}:${departureMinutes}`;
                   
+                  const santaWasHere = currentDate.getTime() - departureDate.getTime() > 0;
+                  const santaIsHere = currentDate.getTime() - arrivalDate.getTime() > 0 && !santaWasHere;
+
+                  let iconUrl = '/leaflet/images/tree-marker-icon.png';
+                  let iconRetinaUrl = '/leaflet/images/tree-marker-icon-2x.png';
+                  
+                  if ( santaIsHere ) {
+                    iconUrl = '/leaflet/images/santa-marker-icon.png';
+                    iconRetinaUrl = '/leaflet/images/santa-marker-icon-2x.png';
+                  }
+                  
+                  if ( santaWasHere ) {
+                    iconUrl = '/leaflet/images/gift-marker-icon.png';
+                    iconRetinaUrl = '/leaflet/images/gift-marker-icon-2x.png';
+                  }
+
+                  // fix so that Santa icon appears in front of other icons
+                  let className = '';
+                  if ( santaIsHere ) {
+                    className = `${className} ${styles.iconSantaIsHere}`;
+                  }
+
                   return (
                     // Updated Marker to also use customized icons
                     <Marker 
                       key={id} 
                       position={[location.lat, location.lng]}
                       icon={Leaflet.icon({
-                        iconUrl: '/leaflet/images/tree-marker-icon.png',
-                        iconRetinaUrl: '/leaflet/images/tree-marker-icon-2x.png',
-                        iconSize: [41, 41]
+                        iconUrl,
+                        iconRetinaUrl,
+                        iconSize: [41, 41],
+                        className
                       })}
                     >
                       <Popup>

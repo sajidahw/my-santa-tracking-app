@@ -24,3 +24,8 @@
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
+
+// updated so Santa icon is in front of other icons
+.iconSantaIsHere {
+  z-index: 9999!important;
+}
