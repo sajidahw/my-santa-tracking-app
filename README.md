@@ -2,9 +2,10 @@
 A Santa Tracker app which displays a map of destinations to see if he's stopped yet, if he's currently at that location or if he's already left.
 
 ![santa_on_map](https://user-images.githubusercontent.com/88634981/210160617-4b1afe62-d05f-4e07-aa8d-1bc0efd33dba.jpg)
+<img src="https://github.com/favicon.ico](https://user-images.githubusercontent.com/88634981/210160617-4b1afe62-d05f-4e07-aa8d-1bc0efd33dba.jpg" width="48">
 
 ![sf_on_map](https://user-images.githubusercontent.com/88634981/210160619-4a8ddfd0-81e1-446d-8a30-833af37e9c1f.jpg)
-
+<img src="https://user-images.githubusercontent.com/88634981/210160619-4a8ddfd0-81e1-446d-8a30-833af37e9c1f.jpg" width="48">
 
 
 # 🍃 Next.js Leaflet Starter
