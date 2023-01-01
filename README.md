@@ -49,5 +49,5 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 ### Issues Encountered during Build
 * Uninstall/disable Vim from VS Code
 * Installing SWR in the same project folder
-* Disableing Chrome settings for JavaScript source map and CSS source map
+* Disabling Chrome settings for JavaScript source map and CSS source map
 
